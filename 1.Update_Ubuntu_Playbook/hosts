@@ -1,0 +1,22 @@
+[control]
+ubuntu-c ansible_connection=local
+
+[centos]
+#centos[1:3]
+
+[centos:vars]
+ansible_user=root
+
+[ubuntu]
+ubuntu[1:3]
+
+[ubuntu:vars]
+ansible_become=true
+ansible_become_pass=password
+
+[linux:children]
+ubuntu
+centos
+
+#[all:vars]
+#ansible_port=1234
